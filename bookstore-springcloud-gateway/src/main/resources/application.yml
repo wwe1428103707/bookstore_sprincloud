@@ -1,0 +1,13 @@
+server:
+  port: ${PORT:8080}
+
+eureka:
+  instance:
+    instance-id: gateway
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_HOST:localhost}:${REGISTRY_PORT:8763}/eureka/
+
+logging:
+  level:
+    root: INFO

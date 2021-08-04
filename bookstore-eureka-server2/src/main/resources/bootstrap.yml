@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka2
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
+      fail-fast: false
+      username: user
+      password: ${CONFIG_PASS:dev}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0

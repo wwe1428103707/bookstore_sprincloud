@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
@@ -6,9 +8,9 @@ spring:
           search-locations: classpath:/configurations
   profiles:
     active: native
-  security:
-    user:
-      password: ${CONFIG_PASS:dev}
+#  security:
+#    user:
+#      password: ${CONFIG_PASS:dev}
 
 management:
   endpoints:
