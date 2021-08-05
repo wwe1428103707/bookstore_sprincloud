@@ -1,14 +1,15 @@
 spring:
   application:
-    name: account2
+    name: gateway
   cloud:
     config:
       uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
       fail-fast: true
       password: ${CONFIG_PASS:dev}
       username: user
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    gateway:
+      routes:
+        - id: payment_r
+          uri: http://localhost:8601
+          predicates:
+            - Path=/payment/test/**

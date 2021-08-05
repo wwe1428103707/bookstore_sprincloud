@@ -8,6 +8,11 @@ spring:
           search-locations: classpath:/configurations
   profiles:
     active: native
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 #  security:
 #    user:
 #      password: ${CONFIG_PASS:dev}
@@ -16,7 +21,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "bus-refresh"
+
 
 server:
   port: ${PORT:8888}

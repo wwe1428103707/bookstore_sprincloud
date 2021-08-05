@@ -51,3 +51,9 @@ logging:
 
 server:
   port: ${PORT:8401}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

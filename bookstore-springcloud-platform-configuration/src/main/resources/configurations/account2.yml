@@ -49,5 +49,11 @@ logging:
   level:
     root: INFO
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 server:
   port: ${PORT:8402}

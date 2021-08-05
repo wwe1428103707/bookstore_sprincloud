@@ -7,3 +7,8 @@ spring:
       fail-fast: true
       password: ${CONFIG_PASS:dev}
       username: user
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest

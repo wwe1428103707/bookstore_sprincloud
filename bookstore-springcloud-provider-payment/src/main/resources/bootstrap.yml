@@ -2,13 +2,36 @@ spring:
   application:
     name: payment
   cloud:
+    stream:
+      binders:
+        rabbit:
+          type: rabbit
+          enviroment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        input:
+          destination: paymentExchange
+          binder: rabbit
+          group: paymentGroup1
+          content-type: application/json
     config:
-      discovery:
-        enabled: true
-        service-id: config-server
       uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
-      name: payment
-      enabled: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 #      fail-fast: true
 #      password: ${CONFIG_PASS:dev}
 #      username: user
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
